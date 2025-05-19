@@ -2,6 +2,9 @@ import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 import { connectDB } from "./db.js"
+import { imageRouter } from "./routes/items.route.js"
+
+
 
 const app = express()
 
@@ -19,7 +22,7 @@ app.use(cors({
 // connects to mongoDB
 connectDB()
 
-
+app.use("/api",imageRouter)
 
 
 
@@ -57,5 +60,5 @@ connectDB()
 
 
 app.listen(PORT, ()=>{
-    console.log(`server is running on  http://localhost${PORT}`)
+    console.log(`server is running on  http://localhost:${PORT}`)
 })
