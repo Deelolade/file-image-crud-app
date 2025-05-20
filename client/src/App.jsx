@@ -11,7 +11,8 @@ const App = () => {
   const [imageData, setImageData] = useState(null)
   const [name, setName] = useState("")
   const [uploadedImageUrl, setUploadedImageUrl] = useState('');
-
+  const apiBaseUrl = import.meta.env.VITE_FRONTEND_URL;
+  console.log(apiBaseUrl)
 
   const handleImageChange = async (e) => {
     const file = e.target.files[0]
@@ -21,7 +22,7 @@ const App = () => {
 
   }
   const fetchImages = async () => {
-    const res = await axios.get("http://localhost:3000/api/images")
+    const res = await axios.get(`${apiBaseUrl}/api/images`)
     setImages(res.data.Images)
     console.log(res.data.Images)
   }
@@ -36,7 +37,7 @@ const App = () => {
     const data = new FormData()
     data.append("image", imageFile)
     try {
-      const res = await axios.post("http://localhost:3000/api/upload", data);
+      const res = await axios.post(`${apiBaseUrl}/api/upload`, data);
       fetchImages();
       setUploadedImageUrl(res.data.imageUrl || res.data.url);
       setUploadStatus("Image uploaded sucessfully")
@@ -48,7 +49,7 @@ const App = () => {
   }
   const updateForm = async (image) => {
     try {
-      const res = await axios.put(`http://localhost:3000/api/images/${image._id}`, { name: name })
+      const res = await axios.put(`${apiBaseUrl}/api/images/${image._id}`, { name: name })
       console.log("update successful:", res.data)
       setIsOpen(false)
       fetchImages()
@@ -59,7 +60,7 @@ const App = () => {
   }
   const deleteImage = async (image) => {
     try {
-      const res = await axios.delete(`http://localhost:3000/api/images/${image._id}`, { name: name })
+      const res = await axios.delete(`${apiBaseUrl}/api/images/${image._id}`, { name: name })
       fetchImages()
       console.log(res.data.message)
     } catch (error) {
