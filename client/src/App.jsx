@@ -99,7 +99,7 @@ const App = () => {
           <h2 className="text-3xl font-bold mb-6 text-white text-center ">Uploaded Images</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3">
-            {images.map((image, idx) => (
+            {images && images.map((image, idx) => (
               <div
                 className="bg-gray-900/60 backdrop-blur-sm border border-gray-800 rounded-xl p-4 transition-all duration-300 group hover:border-purple-500/50 hover:bg-gray-900/80 hover:shadow-lg hover:shadow-purple-900/20 opacity-100 translate-y-0"
                 key={idx}
