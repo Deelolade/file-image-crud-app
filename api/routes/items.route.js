@@ -99,7 +99,7 @@ imageRouter.put("/images/:imageId", async(req, res) => {
             message: "Image data updated successfully"
         })
     } catch (error) {
-        res.status(500).json( "Error occured while updating image data:", error)
+        res.status(500).json({ message: "Error occured while updating image data", error: error.message })
     }
 
 })
@@ -113,8 +113,7 @@ imageRouter.delete("/images/:imageId",async (req, res) => {
         message: "Image deleted"
     })
     } catch (error) {
-    res.status(500).json( "Error occured while deleting image:", error)
-        
+        res.status(500).json({ message: "Error occured while updating image data", error: error.message })        
     }
 })
 
