@@ -82,7 +82,7 @@ const App = () => {
           />
           <button
             onClick={imageFileUpload}
-            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold shadow-md hover:opacity-90 transition"
+            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white md:px-6 px-2 py-2 rounded-full font-semibold shadow-md hover:opacity-90 transition"
           >
             Upload
           </button>
