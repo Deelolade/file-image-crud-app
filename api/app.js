@@ -9,6 +9,9 @@ import { fileURLToPath } from "url";
 
 const app = express()
 // Setup __dirname in ES Module
+
+//NOTE this is a monorepo deployment. i am seploying the whole fulstack app in a single repo/directory that is why the configuration is like this. 
+// But no worries all you files will be visible onn port:3000
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
